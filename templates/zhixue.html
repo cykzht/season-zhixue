@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>退学网——最近一次成绩</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <link rel="icon" href="images/zhixue.ico" type="image/x-icon" />
+    <link href="css/login.css" type="text/css" rel="stylesheet">
+</head>
+<style>
+    body {
+        background:url({{pic}});
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <div class="login">
+        <center>
+            <table border="1px" width="300">
+                <caption style="font-size:23px">{{title}}</caption>
+                <tr style="background: #ee0000">
+                    <th style="font-size:20px">科目</th>
+                    <th style="font-size:20px">分数</th>
+                </tr>
+                {% for row in data %}
+                <tr>
+                    <th style="font-size:20px">{{ row[0] }}</th>
+                    <th style="font-size:20px">{{ row[1] }}</th>
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+    </div>
+
+</body>
+
+</html>

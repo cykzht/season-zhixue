@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<title>{{slog}}</title>
+	<link rel="icon" href="images/zhixue.ico" type="image/x-icon" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="layui/css/layui.css">
+	<link href="css/login.css" type="text/css" rel="stylesheet">
+</head>
+<style>
+	body{
+		background:url({{pic}});
+		background-repeat:no-repeat;
+		background-position:center;
+		background-size:cover;
+	}
+	#mes{
+		--foo:{{color}};
+		background:var(--foo);
+	}
+	.footer{
+		position:absolute;
+		bottom:0;
+		width:100%;
+		}
+</style>
+<body>
+
+	<div class="login">
+		<div class="message" id="mes">{{slog}}</div>
+		<div id="darkbannerwrap"></div>
+
+		<form class="layui-form" method="post" autocomplete="on">
+			<input class="layui-form-label" name="username" placeholder="用户名" required="" type="text">
+			<hr class="hr15">
+			<input class="layui-form-label" name="password" placeholder="密码" required="" type="password">
+			<hr class="hr15">
+			<label class="layui-form-label">记住密码</label>
+			<input type="checkbox" lay-filter="remember" name="remember_user" id="remember_user" lay-skin="primary">
+			<hr class="hr15">
+			<p align="center" style="font-size:20px;color:#FF0000">{{msg}}</p>
+			<input lay-submit lay-filter="login" class="layui-btn" value="登录" style="width:100%;" type="submit"name="login">
+		</form>
+
+	</div>
+	<div class="footer">
+		<center>
+			<p style="color:#FF0000">网站仅提供查询功能，不具备存储、修改的功能</p>
+			<p><a href="https://gitee.com/cykzht/season-zhixue">开源地址</a> | <a href="https://hexo.g2022cyk.top/2022/四季学正式开源！">程序介绍</a></p>
+		</center>
+		
+	</div>
+	
+</body>
+
+</html>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/layui.js"></script>
+
+<script>
+	layui.use(['form'], function () {
+		var form = layui.form,
+			layer = layui.layer;
+
+		/*记住用户名和密码*/
+		if ($.cookie("remember_user")) {
+			$("#remember_user").prop("checked", true);
+			form.val("add_form", {
+				"username": $.cookie("user_name"),
+				"password": $.cookie("user_password")
+			})
+		}
+		// 进行登录操作
+		form.on('submit(login)', function (data) {
+			data = data.field;
+			if (data.username == '') {
+				layer.msg('用户名不能为空');
+				return false;
+			}
+			if (data.password == '') {
+				layer.msg('密码不能为空');
+				return false;
+			}
+			//勾选记住密码
+			if (data.remember_user == "on") {
+				var user_name = data.username;
+				var user_password = data.password;
+				$.cookie("remember_user", "true", {
+					expires: 7
+				}); // 存储一个带7天期限的 cookie
+				$.cookie("user_name", user_name, {
+					expires: 7
+				}); // 存储一个带7天期限的 cookie
+				$.cookie("user_password", user_password, {
+					expires: 7
+				}); // 存储一个带7天期限的 cookie
+			} else {
+				$.cookie("remember_user", "false", {
+					expires: -1
+				}); // 删除 cookie
+				$.cookie("user_name", '', {
+					expires: -1
+				});
+				$.cookie("user_password", '', {
+					expires: -1
+				});
+			}
+			return true;
+		});
+	});
+
+</script>
