@@ -1,4 +1,3 @@
 flask
 zhixuewang
 flask_limiter
-gevent
