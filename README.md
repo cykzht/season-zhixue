@@ -1,13 +1,20 @@
 # Season-zhixue
 
+### 该项目已停止更新
+
+由于这一届的高三学生毕业，故网站不再进行技术更新，可能存在一些未知的bug没有修复，如遇500错误请稍后重试。
+
+[网站](https://zhixue.g2022cyk.top:6081/ "退学网")还会继续运营，直到2023年5月20日域名到期，如有想运营网站的同学请通过微信联系我。
+[![alt](https://11.g2022cyk.top:85/wp-content/uploads/2022/07/1657787833-zhuhaitian.png)]
+
 ### 介绍
+
 四季学——退学网，可以绕过某学网的限制，获取到自己真实的成绩。
 
 正如它的名字一样，这是一个会变换四季的程序，每次启动的时候都会重新选择一个季节作为主题季节。
 
-
-
 ### 安装教程
+
 #### 环境配置
 
 ```python
@@ -15,7 +22,6 @@ pip3 install flask
 pip3 install zhixuewang
 pip3 install flask_limiter
 ```
-
 
 ### 使用说明
 
@@ -25,16 +31,14 @@ pip3 install flask_limiter
 
 3、输入某学网的账号和密码即可查询最新一次的考试成绩。
 
-
 ### TODO
 
-- [x] 记住密码
-（貌似不起作用，在Javascript里，使用cookie）
-- [ ] 排名查询
-（找不到接口）
+- [X] 记住密码
+  （貌似不起作用，在Javascript里，使用cookie）
+- [X] 排名查询
+  （找不到接口）
 - [ ] 历史成绩查询
-（没什么大用，主要是接口调用太复杂，咕了）
-
+  （没什么大用，主要是接口调用太复杂，咕了）
 
 ### 修改建议
 
@@ -43,6 +47,7 @@ pip3 install flask_limiter
 ```python
 app.config["SECRET_KEY"] = 'abc'  # 配置密钥
 ```
+
 2. 如需控制网站访问量可以设置Limiter。
 
 ```python
@@ -52,7 +57,9 @@ limiter = Limiter(  # 限制访问量
     default_limits=["200 per day", "20 per minute"]  # 默认限制，一分钟最多访问20次
 )
 ```
+
 2. 如果你的网站使用了Nginx代理，请为Limiter加入以下代码。
+
 ```python
 def limit_key_func():
     return str(request.headers.get("X-Forwarded-For", '127.0.0.1'))
@@ -62,11 +69,9 @@ limiter = Limiter(  # 限制访问量
     default_limits=["200 per day", "20 per minute"]  # 默认限制，一分钟最多访问20次
 )
 ```
+
 3. 错误页面在[error.html](templates/error.html)里。
-
-
 
 ### 参与贡献
 
 本项目的诞生离不开[zhixuewang](https://github.com/anwenhu/zhixuewang-python)、[layui](https://gitee.com/sentsin/layui)、[Flask](https://github.com/pallets/flask)。
-
