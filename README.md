@@ -5,7 +5,7 @@
 由于这一届的高三学生毕业，故网站不再进行技术更新，可能存在一些未知的bug没有修复，如遇500错误请稍后重试。
 
 [网站](https://zhixue.g2022cyk.top:6081/ "退学网")还会继续运营，直到2023年5月20日域名到期，如有想运营网站的同学请通过微信联系我。
-[![alt](https://11.g2022cyk.top:85/wp-content/uploads/2022/07/1657787833-zhuhaitian.png)]
+![img](https://11.g2022cyk.top:85/wp-content/uploads/2022/07/1657787833-zhuhaitian.png)]
 
 ### 介绍
 
