@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>退学网——最近一次成绩</title>
+    <title>退学网——考试列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <link rel="icon" href="images/zhixue.ico" type="image/x-icon" />
     <link rel="stylesheet" href="layui/css/layui.css">
@@ -41,21 +41,12 @@
     </ul>
     <div class="login">
         <center>
-            <table class="layui-table" border="1px" width="300">
-                <caption style="font-size:23px">{{title}}</caption>
-                <tr style="background: #ff3030">
-                    <th style="font-size:20px;color: #000;">科目</th>
-                    <th style="font-size:20px;color: #000;">分数</th>
-                    <th style="font-size:20px;color: #000;">班排</th>
-                </tr>
-                {% for row in data %}
-                <tr>
-                    <th style="font-size:20px">{{ row[0] }}</th>
-                    <th style="font-size:20px">{{ row[1] }}</th>
-                    <th style="font-size:20px">{{ row[2] }}</th>
-                </tr>
-                {% endfor %}
-            </table>
+            <caption style="font-size:30px">请选择考试</caption>
+            {% for row in data %}
+            <div>
+                <a href="{{url_for('login')+'?exam='+row[0]}}" class="layui-btn layui-btn-primary" style="margin-top: 1px;margin-bottom: 1px;">{{ row[1] }}</a>
+            </div>
+            {% endfor %}
         </center>
     </div>
     <div class="footer">
@@ -63,6 +54,17 @@
 			<p>V1.1.4</p>
 		</center>		
 	</div>
+    <script src="layui/jquery-3.6.0.min.js"></script>
+	<script src="layui/layui.js"></script>
+    <script>
+        layui.use(['layer','util'],function(){
+            var layer = layui.layer;
+                util = layui.util;
+            if('{{message}}'){
+                layer.msg('{{message}}');
+            }
+        })
+    </script>
 </body>
 
 </html>

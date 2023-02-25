@@ -9,24 +9,25 @@
     <title>错误</title>
     <link rel="icon" href="images/zhixue.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-
-    <link href="css/login.css" type="text/css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <style>
+        body {
+            background:url(images/web_login_bg1.webp);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
 </head>
-<style>
-    body {
-        background:url(images/web_login_bg1.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
-</style>
+
 <body>
 
     <div class="login">
         <p style="text-align: center;">
             <img src="images/error.png">
         </p>
-        <hr class="hr15">
+        <br>
         <p align="center" style="font-size:35px;color:#FF0000">{{msg}}</p>
 
     </div>
