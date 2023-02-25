@@ -5,7 +5,7 @@
 
 正如它的名字一样，这是一个会变换四季的程序，每次启动的时候都会重新选择一个季节作为主题季节。
 
-![show](static\images\show.jpg)
+![show](static/images/show.jpg)
 
 ### 安装教程
 #### 环境配置
